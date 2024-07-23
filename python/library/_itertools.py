@@ -27,7 +27,6 @@ print (list(combinations(data, 3)))
 '''
 
 # product
-# permutations
 # iterable에서 n개의 데이터를 모두 나열
 # 중복 허용
 from itertools import product
