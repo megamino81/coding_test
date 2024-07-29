@@ -5,7 +5,7 @@ def solution(numbers):
     while stack and numbers[stack[-1]] < numbers[i]:
       answer[stack.pop()] = numbers[i]
     stack.append(i)
-    
+
   return answer
 
 n = [2, 3, 3, 5] #	[3, 5, 5, -1]

@@ -2,7 +2,7 @@ def solution(bridge_length, weight, truck_weights):
   answer = 0
 
   # 다리를 만들자, 일단 전체를 길이만큼 0으로 세팅
-  bridge_que = [0] * bridge_length 
+  bridge_que = [0] * bridge_length
   cur_weight = 0
 
   # trucks.pop(0) 대신 pop()을 사용하기 위해 뒤집기
