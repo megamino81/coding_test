@@ -42,6 +42,7 @@ int main(int argc, char** argv)
     cin >> t;
 
     vector<string> results;
+
     for (int i = 0; i < t; i++)
     {
         int in;
