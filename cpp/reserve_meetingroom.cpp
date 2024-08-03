@@ -6,6 +6,7 @@
 #include <string>
 #include <algorithm>
 #include <map>
+#include <iomanip>
 
 using namespace std;
 
@@ -80,16 +81,10 @@ int main(int argc, char** argv)
             cout << count << " available:\n";
             int c = 0;
             for (auto t: times) {
-                int start = t.first;
-                int end = t.second;
-                string start_str, end_str;
-                start_str = to_string(start + 9);
-                end_str = to_string(end + 9);
-                if (start_str.size() == 1)
-                    start_str.insert(0, "0");
-                if (end_str.size() == 1)
-                    end_str.insert(0, "0");
-                cout << start_str << '-' << end_str << endl;
+                int start = t.first + 9;
+                int end = t.second + 9;
+
+                cout << setw(2) << std::setfill('0') << start << '-' << end << "\n";
             }
         }
         count_for_line ++;
