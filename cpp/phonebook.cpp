@@ -26,3 +26,8 @@ bool solution(vector<string> phone_book) {
     }
     return answer;
 }
+
+int main(void)
+{
+    return 0;
+}
