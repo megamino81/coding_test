@@ -46,3 +46,8 @@ int solution(string begin, string target, vector<string> words) {
     }
     return answer;
 }
+
+int main(int argc, char** argv)
+{
+    return 0;
+}

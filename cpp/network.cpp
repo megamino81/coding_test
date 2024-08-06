@@ -31,3 +31,8 @@ int solution(int n, vector<vector<int>> computers) {
     }
     return answer;
 }
+
+int main(int argc, char** argv)
+{
+    return 0;
+}

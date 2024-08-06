@@ -52,3 +52,8 @@ int solution(vector<vector<int> > maps)
     }
     return answer;
 }
+
+int main(int argc, char** argv)
+{
+    return 0;
+}

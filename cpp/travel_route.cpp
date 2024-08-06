@@ -1,6 +1,7 @@
 // 여행경로
 // https://school.programmers.co.kr/learn/courses/30/lessons/43164?language=cpp
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -10,7 +11,7 @@ using namespace std;
 
 stack<string> st;
 
-void DFS(vector<vector<string> tickets, vector<bool>& visited, string start)
+void DFS(vector<vector<string>> tickets, vector<bool>& visited, string start)
 {
     for(int i=0; i<tickets.size(); i++) {
         if (!visited[i]) {
@@ -45,4 +46,9 @@ vector<string> solution(vector<vector<string>> tickets) {
         st.pop();
     }
     return answer;
+}
+
+int main(int argc, char** argv)
+{
+    return 0;
 }
