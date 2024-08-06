@@ -18,7 +18,7 @@ def solution(maps):
 
     visited = [[0] * m for _ in range(n)]
 
-    visited[0][0] = 1
+    visited[0][0] = 1       w
 
     next_path = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 

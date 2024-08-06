@@ -24,8 +24,9 @@ int solution(string begin, string target, vector<string> words) {
 
     queue<pair<string, int>> Q;
 
-    Q.push(make_pair(begin,0));
+    Q.push(make_pair(begin, 0));
 
+    // BFS 
     while (!Q.empty()) {
         string temp = Q.front().first;
         int num = Q.front().second;

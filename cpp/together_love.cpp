@@ -112,3 +112,101 @@ int main(int argc, char** argv)
     cout<<ans;
     return 0;
 }
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+
+int grid[20][20] = {0,};
+int tmp[20][20] = {0,};
+bool visited[20][20] = {false,};
+bool route[20][20] = {false,};
+int n; int m;
+int move_x[4] = {0,1,0,-1};
+int move_y[4] = {1,0,-1,0};
+vector<pair<int, int>> bestPath;
+vector<pair<int, int>> currentPath;
+vector<int> results;
+
+bool canMove(int nx, int ny){
+    if(nx<0 || nx>=n || ny<0 || ny>=n) return false;
+    return true;
+}
+
+int dfs(int x, int y, int time, int current_fruit) {
+    if (time >= 3) {
+        return current_fruit;
+    }
+    int max_fruit = current_fruit;
+    for (int i = 0; i < 4; ++i) {
+        int mx = x + move_x[i];
+        int my = y + move_y[i];
+        if (canMove(mx, my) && !visited[mx][my]) {
+            int fruit = grid[mx][my];
+            visited[mx][my] = true;
+            currentPath.push_back({mx, my});
+            int total_fruit = dfs(mx, my, time + 1, current_fruit + fruit);
+            if (results.back() < total_fruit) {
+                results.push_back(total_fruit); // 이거였음!!!!!!!!!
+                max_fruit = total_fruit;
+                if (time == 2) {
+                    bestPath = currentPath;
+                    // cout << max_fruit<<"/";
+                    // for(auto i:bestPath) cout << i.first<<","<<i.second<<"\n";
+                }
+            }
+            currentPath.pop_back();
+            visited[mx][my] = false;
+        }
+    }
+    return results.back();
+}
+
+int findMax(int x, int y){
+    // cout << x<<","<<y<<")\n";
+    int start_fruit = grid[x][y];
+    visited[x][y] = 1;
+    grid[x][y] = 0;
+    results.push_back(start_fruit);
+    int max_fruit = dfs(x, y, 0, start_fruit);
+    visited[x][y] = 0;
+    
+    for(auto i:bestPath){
+        // cout <<"("<< i.first<<"," << i.second<<") ";
+        grid[i.first][i.second] = 0;
+    }
+    currentPath.clear();
+    return max_fruit;
+}
+
+int main(int argc, char** argv)
+{
+    int friends[3][3] = {0,};
+    int answer = 0;
+    cin >> n >> m;
+    for(int i=0; i<n; ++i){
+        for(int j=0; j<n; ++j) {
+            cin >> grid[i][j];
+        }
+    }
+    for(int i=0; i<m; ++i) cin >> friends[i][0] >> friends[i][1];
+    memcpy(tmp, grid, sizeof(grid));
+    vector<int> mlist;
+    for(int i=0; i<m; ++i) mlist.push_back(i);
+    do {
+        int max = 0;
+        memcpy(grid, tmp, sizeof(tmp));
+        for (int j = 0; j < m; ++j) {
+            int fr = mlist[j];
+            max += findMax(friends[fr][0]-1, friends[fr][1]-1);
+            // cout << max << "///----\n\n";
+        }
+        if (answer < max) answer = max;
+    } while (next_permutation(mlist.begin(), mlist.end())); // 잘못된 공백 문자 수정
+    cout << answer;
+   return 0;
+}

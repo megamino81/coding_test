@@ -1,3 +1,6 @@
+// 위험한 효도
+// https://softeer.ai/practice/7368
+
 #include <iostream>
 
 using namespace std;

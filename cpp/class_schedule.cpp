@@ -19,6 +19,8 @@ int main(int argc, char** argv)
         cin >> s >> e;
         schedule.push_back({e, s});
     }
+    // 종료시간과 시작시간을 바꾸어 push
+    // 종료시간 sort, 그 안에서 시작시간 sort됨
     sort(schedule.begin(), schedule.end());
 
     int count = 1;

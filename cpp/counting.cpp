@@ -43,8 +43,7 @@ int main(int argc, char** argv)
 
     vector<string> results;
 
-    for (int i = 0; i < t; i++)
-    {
+    for (int i=0; i<t; i++) {
         int in;
         cin >> in;
 
@@ -52,20 +51,17 @@ int main(int argc, char** argv)
         int cut = in % 5;
 
         string result;
-        for (int i = 0; i < div; i++)
-        {
+        for (int i=0; i<div; i++) {
             result += "++++ ";
         }
 
-        for (int i = 0; i < cut; i++)
-        {
+        for (int i=0; i<cut; i++) {
             result +="|";
         }
-        results.push_back(result+"\n");
+        results.push_back(result + "\n");
     }
 
-    for (int i = 0; i < results.size(); i++)
-    {
+    for (int i=0; i<results.size(); i++) {
         cout << results[i];
 
     }

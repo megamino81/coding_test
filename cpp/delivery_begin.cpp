@@ -1,3 +1,6 @@
+// 연탄 배달의 시작
+// https://softeer.ai/practice/7626
+    
 #include <iostream>
 #include <vector>
 #include <map>
