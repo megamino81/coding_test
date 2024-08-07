@@ -1,6 +1,6 @@
 // 함께하는 효도
 // https://softeer.ai/practice/7727
-
+#if 0
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -112,7 +112,7 @@ int main(int argc, char** argv)
     cout<<ans;
     return 0;
 }
-
+#endif
 
 
 #include <iostream>
