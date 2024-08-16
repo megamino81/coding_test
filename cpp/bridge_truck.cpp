@@ -52,6 +52,7 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
         cur_weight += w;
         bridgeQ.push(w);
     }
+    
     return second + bridgeQ.size();
 }
 
